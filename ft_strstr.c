@@ -6,7 +6,7 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 09:19:59 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/13 16:58:07 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:24:14 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 char	*ft_strstr(char *str, char *to_find)
@@ -16,24 +16,28 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i = 0;
 	if (to_find[0] == '\0')
-		return (str);
+		return ('\0');
 	while (str[i] != '\0')
 	{
-		while(str[i+j] != '\0' && str[i] == to_find[j])
-		j++; 
-		return (&str[i]);
+		j = 0;
+		while (str[i + j] != '\0' && str[i + j] == to_find[j])
+		{
+			if (to_find[j] != '\0')
+				return (&str[i]);
+			j++;
+		}
 		i++;
 	}
 	return ('\0');
 }
-#include <stdio.h>
-#include <string.h>
+/*#include <stdio.h>
 int main()
 {
-	//char str1[] = "";
-	char str2[] = "cdef";
-	char str3[] = "cd";
-	printf("%s", strstr(str2, str3));
-	printf("\n");
-	printf("%s", ft_strstr(str2, str3));
-}
+	char strDep[] = "il fait beau aujourdhui et beau demain";
+	char strToF1[] = "beau";	//ok
+	char strToF2[] = "";		//vide
+	char strToF3[] = "z";		//pas de correspondance
+	printf("%s", ft_strstr(strDep, strToF1));
+	printf("%s", ft_strstr(strDep, strToF2));
+	printf("%s", ft_strstr(strDep, strToF3));
+}*/
