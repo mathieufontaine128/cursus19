@@ -18,22 +18,25 @@ char	*ft_strstr(char *str, char *to_find)
 	if (to_find[0] == '\0')
 		return (str);
 	while (str[i] != '\0')
-	{
-		while(str[i+j] != '\0' && str[i] == to_find[j])
-		j++; 
-		return (&str[i]);
+	{	
+		j = 0;
+		while(str[i + j] != '\0' && to_find[j] != '\0' && str[i + j] == to_find[j]) 
+			j++;
+		if (to_find[j] == '\0')
+			return(&str[i]);
 		i++;
 	}
-	return ('\0');
+	return ("NULL");
 }
 #include <stdio.h>
 #include <string.h>
 int main()
 {
 	//char str1[] = "";
-	char str2[] = "cdef";
-	char str3[] = "cd";
+	char str2[] = "";
+	char str3[] = "ef";
 	printf("%s", strstr(str2, str3));
 	printf("\n");
 	printf("%s", ft_strstr(str2, str3));
+	printf("\n");
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:51:55 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/13 15:50:20 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/06 17:53:07 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/08 11:18:41 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+#include <unistd.h>
+void	ft_putstr(char *str)
 {
-	while( n > 0 && *s1 && (*s1 ==*s2)
-		s1++;
-		s2++;
-		n--;
-	}
-	if (n <= 0)
-		return (0);
-	else
-		return (*s1 - *s2);
+	int	lon;
+
+	lon = 0;
+	while (str[lon])
+		lon++;
+	write (1, str, lon);
 }
-#include <string.h>
-#include <stdio.h>
-int main ()
+int main()
 {
-	//char str1[] = "";
-	char str2[] = "abd";
-	char str3[] = "abc";
-	//printf("%d\n", strncmp(str2, str3, -3));
-        printf("%d\n",ft_strncmp(str2, str3, -31));
+	ft_putstr("hello 42");
 }

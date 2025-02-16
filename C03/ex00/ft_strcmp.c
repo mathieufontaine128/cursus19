@@ -11,22 +11,20 @@
 /* ************************************************************************** */
 int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0')
+	while(*s1 && (*s1 == *s2))
 	{
-		i++;
+		s1++;
+		s2++;
 	}
-	return (s1[i] - s2[i]);
+	return (*s1 - *s2);
 }
-/*#include <stdio.h>
+#include <stdio.h>
 #include<string.h>
-int main()
+/*int main()
 {
 	char str1[] = "";
-	char str2[] = "a";
-	char str3[] = "b";	
+	char str2[] = "bb";
+	char str3[] = "bb";	
 	printf("%d\n", strcmp(str1, str2));
 	printf("%d\n", strcmp(str2, str1));
 	printf("%d\n", strcmp(str2,str2));
