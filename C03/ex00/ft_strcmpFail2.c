@@ -6,17 +6,19 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:47:48 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/16 11:01:42 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:03:40 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s1 && (*s1 == *s2))
+	if (!s1 || !s2)
+		return (-1);
+	while (*s1 && *s2 && (*s1 == *s2))
 	{
 		s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+	return (unsigned char)*s1-(unsigned char)*s2;
 }
 #include <stdio.h>
 #include<string.h>

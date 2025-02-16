@@ -6,37 +6,40 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:47:48 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/16 11:01:42 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/15 08:00:44 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s1 && (*s1 == *s2))
+	int	i;
+
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-		s1++;
-		s2++;
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return (s1[i] - s2[i]);
 	}
-	return (*s1 - *s2);
+	return (0);
 }
 #include <stdio.h>
 #include<string.h>
 int main()
 {
-	char str1[] = "";
-	char str2[] = "a";
-	char str3[] = "b";	
+	char str1[] = "au";
+	char str2[] = "aU";
+	char str3[] = "au";
+	char str4[] = "au";
+	char str5[] = "aU";
+	char str6[] = "au";
+	char str7[] = "è";
+	char str8[] = "e";
 	printf("%d\n", strcmp(str1, str2));
-	printf("%d\n", strcmp(str2, str1));
-	printf("%d\n", strcmp(str2,str2));
-	printf("%d\n", strcmp(str3, str2));
-	printf("%d\n", strcmp(str2,str3));
-	printf("%d\n", strcmp(str1,str1));	
-	printf("\n");
+	printf("%d\n", strcmp(str3, str4));
+	printf("%d\n", strcmp(str5, str6));
 	printf("%d\n", ft_strcmp(str1, str2));
-	printf("%d\n", ft_strcmp(str2, str1));
-	printf("%d\n", ft_strcmp(str2,str2));
-	printf("%d\n", ft_strcmp(str3,str2));
-	printf("%d\n", ft_strcmp(str2,str3));
-	printf("%d\n", ft_strcmp(str1, str1));
-			
-}
+	printf("%d\n", ft_strcmp(str3, str4));
+	printf("%d\n", ft_strcmp(str5, str6));
+	printf("%d\n", ft_strcmp(str7, str8));
+
