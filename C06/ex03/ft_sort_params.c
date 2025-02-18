@@ -1,25 +1,73 @@
 #include <unistd.h>
-
-int main(int argc, char **argv)
+}/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:47:48 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/13 14:46:23 by mfontain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
-	int j;
-	char *temp;
-
-	i = 1;
-	while (i < arg -1)
+	while(*s1 && (*s1 == *s2))
 	{
-		if (argv[i][0] < argv[i+1][0])
-			
-		
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-		       write(1, &argv[i][j], 1);
-		       j++;
-		}
-		write (1, "\n", 1);
-		i++;
+		s1++;
+		s2++;
 	}
+	return (*s1 - *s2);
+}
+#include <stdio.h>
+#include<string.h>
+/*int main()
+{
+	char str1[] = "";
+	char str2[] = "bb";
+	char str3[] = "bb";	
+	printf("%d\n", strcmp(str1, str2));
+	printf("%d\n", strcmp(str2, str1));
+	printf("%d\n", strcmp(str2,str2));
+	printf("%d\n", strcmp(str3, str2));
+	printf("%d\n", strcmp(str2,str3));
+	printf("%d\n", strcmp(str1,str1));	
+	printf("\n");
+	printf("%d\n", ft_strcmp(str1, str2));
+	printf("%d\n", ft_strcmp(str2, str1));
+	printf("%d\n", ft_strcmp(str2,str2));
+	printf("%d\n", ft_strcmp(str3,str2));
+	printf("%d\n", ft_strcmp(str2,str3));
+	printf("%d\n", ft_strcmp(str1, str1));
+			
+}*//* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:47:48 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/13 14:46:23 by mfontain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+int	ft_strcmp(char *s1, char *s2)
+{
+	while(*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
+}
+void	ft_putstr(char *str)
+{
+	int	i;
 
+	i = 0;
+	while (str[i])
+	{
+		write (1, &str[i], 1);
+		i++ ;
+	}
 }
