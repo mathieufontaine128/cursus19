@@ -17,6 +17,40 @@ void	ft_putstr(char *str)
 	while (str[i])
 	{
 		write (1, &str[i], 1);
-		i++ ;
+		i++;
 	}
+}
+void ft_swap(char **a, char **b)
+{
+	char *temp;
+		   
+	temp = *a;
+    	*a = *b;	  
+	*b = temp;
+}
+int	main(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = i + 1;
+		while (j < argc)
+		{
+			if(ft_strcmp(argv[i],argv[j]) > 0)
+				ft_swap(&argv[i], &argv[j]);
+			j++;
+		}
+		i++;
+	}
+	i =1;
+	while (i < argc)
+	{
+		ft_putstr(argv[i]);
+		write(1, "\n", 1);
+		i++;
+	}
+
 }
