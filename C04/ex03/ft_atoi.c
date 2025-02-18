@@ -6,35 +6,34 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:14:36 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/16 16:08:20 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/17 09:07:38 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_atoi(char *str)
 {
-	int n;
-	int sign;
+	int	i;
+	int	n;
+	int	sign;
 
+	n = 0;
 	sign = 1;
-	while(*str == '\t' || *str == '\n' || *str == '\v' 
-		|| *str == '\f' || *str == '\r' || *str == ' '
-		|| (*str >= 'A' && *str >= 'Z') 
-		|| (*str >= 'a' && *str <= 'a'))
+	while ((str[i] >= '\a' && str[i] <= '\r') || str[i] == ' ')
 		str++;
-	while(*str == '-'|| *str == '+')
+	while (str[i] == '-' || str[i] == '+')
 	{
-		if(*str == '-')
+		if (str[i] == '-')
 			sign *= -1;
 		str++;
 	}
-	while(*str >= '0' && *str <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		n = n * 10 + (*str - '0');		
+		n = n * 10 + (str[i] - '0');
 		str++;
 	}
-	return(n * sign);
+	return (n * sign);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {
-	printf("%d\n",ft_atoi("   			++-+-+-----ahaaj12dd12d:xi"));
-}
+	printf("%d\n",ft_atoi("   			++-+-+-------1212dd12d:xi"));
+}*/

@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 18:23:22 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/17 16:37:28 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/18 12:51:24 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/18 12:55:58 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_strlen(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+char	*ft_strdup(char *src)
+{
+
 }
 
-void	ft_putnbr(int nb)
-{
-
-	if (nb == -2147483648)
-	{
-		write(1, "-2147683648", 11);
-		return ;
-	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -1;
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar(nb % 10 + '0');
-}
-int main()
-{
-	ft_putnbr(-274838);
-	ft_putchar('\n');
-}

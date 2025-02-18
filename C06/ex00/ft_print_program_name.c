@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 18:23:22 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/17 16:37:28 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/17 14:02:11 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/18 08:09:39 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	main(int argc, char **argv)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-
-	if (nb == -2147483648)
+	(void)argc;
+	i = 0;
+	while (argv[0][i])
 	{
-		write(1, "-2147683648", 11);
-		return ;
+		write(1, &argv[0][i], 1);
+		i++;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -1;
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar(nb % 10 + '0');
-}
-int main()
-{
-	ft_putnbr(-274838);
-	ft_putchar('\n');
+	write (1, "\n", 1);
 }

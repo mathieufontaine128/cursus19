@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 18:23:22 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/17 16:37:28 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/18 08:12:28 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/18 10:55:08 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	main(int argc, char **argv)
 {
-	write(1, &c, 1);
-}
+	int	i;
+	int	j;
 
-void	ft_putnbr(int nb)
-{
-
-	if (nb == -2147483648)
+	i = 1;
+	while (i < argc)
 	{
-		write(1, "-2147683648", 11);
-		return ;
+		j = 0;
+		while (argv[i][j])
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		write (1, "\n", 1);
+		i++;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -1;
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar(nb % 10 + '0');
-}
-int main()
-{
-	ft_putnbr(-274838);
-	ft_putchar('\n');
 }
