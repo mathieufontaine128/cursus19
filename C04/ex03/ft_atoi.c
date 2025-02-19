@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 18:29:47 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/15 11:35:22 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/15 12:14:36 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/17 09:07:38 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-char	*ft_strcat(char *dest, char *src)
+int	ft_atoi(char *str)
 {
 	int	i;
-	int	j;
+	int	n;
+	int	sign;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
+	n = 0;
+	sign = 1;
+	while ((str[i] >= '\a' && str[i] <= '\r') || str[i] == ' ')
+		str++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		dest[i + j] = src[j];
-		j++;
+		if (str[i] == '-')
+			sign *= -1;
+		str++;
 	}
-	dest[i + j] = '\0';
-	return (dest);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		n = n * 10 + (str[i] - '0');
+		str++;
+	}
+	return (n * sign);
 }
-/*#include <string.h>
-#include <stdio.h>
-int main ()
+/*#include <stdio.h>
+int main()
 {
-	char str1[100] = "abc";
-	char str2[] = "def";
-	char str3[] = "abc";
-	printf("avec ft_strcat : %s\n",ft_strcat(str1, str2));
-	printf("avec strcat : %s\n",strcat(str3, str2));	
+	printf("%d\n",ft_atoi("   			++-+-+-------1212dd12d:xi"));
 }*/

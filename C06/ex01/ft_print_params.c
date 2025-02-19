@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:51:55 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/16 11:25:44 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/18 08:12:28 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/18 10:55:08 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+#include <unistd.h>
+
+int	main(int argc, char **argv)
 {
-	while(n > 0 && *s1 && (*s1 == *s2))
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < argc)
 	{
-		s1++;
-		s2++;
-		n--;
+		j = 0;
+		while (argv[i][j])
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		write (1, "\n", 1);
+		i++;
 	}
-	if (n <= 0)
-		return (0);
-	else 	
-		return (*s1 - *s2);
 }
-/*#include <string.h>
-#include <stdio.h>
-int main ()
-{
-	//char str1[] = "";
-	char str2[] = "abc";
-	char str3[] = "abd";
-	//printf("%d\n", strncmp(str2, str3, -3));
-        printf("%d\n",ft_strncmp(str2, str3,-3));
-}*/

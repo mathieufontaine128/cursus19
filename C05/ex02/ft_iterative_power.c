@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:51:55 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/16 11:25:44 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/19 07:40:53 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/19 07:54:03 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_iterative_power(int nb, int power)
 {
-	while(n > 0 && *s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-		n--;
-	}
-	if (n <= 0)
+	int	i;
+	int	powered;
+
+	i = power;
+	powered = nb;
+	if (nb == 0 && power == 0)
+		return (1);
+	if (power < 0)
 		return (0);
-	else 	
-		return (*s1 - *s2);
+	while (i > 1)
+	{
+		powered *= nb;
+		i--;
+	}
+	return (powered);
 }
-/*#include <string.h>
-#include <stdio.h>
-int main ()
+/*#include <stdio.h>
+int main()
 {
-	//char str1[] = "";
-	char str2[] = "abc";
-	char str3[] = "abd";
-	//printf("%d\n", strncmp(str2, str3, -3));
-        printf("%d\n",ft_strncmp(str2, str3,-3));
+	printf("%d\n", ft_iterative_power(0, 0));
 }*/

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:51:55 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/16 11:25:44 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/19 07:21:02 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/19 07:34:45 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_iterative_factorial(int nb)
 {
-	while(n > 0 && *s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-		n--;
-	}
-	if (n <= 0)
+	int	i;
+
+	i = nb;
+	if (nb < 0)
 		return (0);
-	else 	
-		return (*s1 - *s2);
+	if (nb == 0)
+		return (1);
+	while (i > 1)
+	{
+		nb *= i - 1;
+		i--;
+	}
+	return (nb);
 }
-/*#include <string.h>
-#include <stdio.h>
-int main ()
+/*#include <stdio.h>
+int	main()
 {
-	//char str1[] = "";
-	char str2[] = "abc";
-	char str3[] = "abd";
-	//printf("%d\n", strncmp(str2, str3, -3));
-        printf("%d\n",ft_strncmp(str2, str3,-3));
+	printf("%d\n", ft_iterative_factorial(0));
 }*/

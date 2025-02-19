@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 17:51:55 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/16 11:25:44 by mfontain         ###   ########.fr       */
+/*   Created: 2025/02/19 07:48:15 by mfontain          #+#    #+#             */
+/*   Updated: 2025/02/19 08:59:57 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_recursive_power(int nb, int power)
 {
-	while(n > 0 && *s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-		n--;
-	}
-	if (n <= 0)
-		return (0);
-	else 	
-		return (*s1 - *s2);
+	if (power <  0)
+		return(0);
+	if (nb == 0 && power == 0)
+		return(1);
+	return(nb * ft_recursive_power(nb, power - 1));
 }
-/*#include <string.h>
 #include <stdio.h>
-int main ()
+int main()
 {
-	//char str1[] = "";
-	char str2[] = "abc";
-	char str3[] = "abd";
-	//printf("%d\n", strncmp(str2, str3, -3));
-        printf("%d\n",ft_strncmp(str2, str3,-3));
-}*/
+	printf("%d\n",ft_recursive_power(23, 2));
+}
