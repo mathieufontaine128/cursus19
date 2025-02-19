@@ -6,10 +6,11 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:56:19 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/18 14:50:23 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:32:23 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
+
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -34,21 +35,28 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-void *ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
-	char *copy;
-	size_t len;
-	
-	copy = NULL;	
-	len = ft_strlen(*str) + 1;
+	char	*copy;
+	size_t	len;
+
+	copy = NULL;
+	len = ft_strlen(src) + 1;
 	copy = (char *) malloc(len * sizeof(char));
-	ft_strcpy(copy, str);
+	if (!copy)
+		return (NULL);
+	ft_strcpy(copy, src);
 	return (copy);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int main()
 {	
 	char chaine[] = "une copy";
-	printf(ft_strdup(chaine));
-}
+	char *copie;
+	
+	copie =  ft_strdup(chaine);
 
+	printf("la copie contient :%s\n", copie);
+
+	free(copie);
+}*/
