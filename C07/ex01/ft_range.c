@@ -6,39 +6,45 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:37 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/19 11:26:43 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/19 12:51:49 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-int *ft_range	(int min, int max)
+
+int	*ft_range(int min, int max)
 {
 	int	len;
 	int	*tab;
 	int	i;
-	
+
 	if (min >= max)
-		return(0);
+		return (0);
 	len = max - min;
-	i = min;
+	i = 0;
 	tab = (int *)malloc (len * sizeof(int));
-	while(i < max)
+	if (tab == NULL)
+		return (NULL);
+	while (i < len)
 	{
-		tab[i] = i;
+		tab[i] = min + i;
 		i++;
 	}
 	return (tab);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int main ()
 {	
 	int i = 0;
-	int min = 1;
-	int max = 5;
+	int min = 12;
+	int max = 18;
+	int len = max - min;
 	int *tableau;
 	
-	*tableau = *ft_range(min, max);
-	while(i <= max)
+	tableau = ft_range(min, max);
+	while(i < len)
 	{
-	       printf("%d\n", *tableau);
+	       printf("%d\n", tableau[i]);
+	       i++;
 	}
-}
+	free (tableau);
+}*/
