@@ -6,6 +6,8 @@ int	ft_iterative_power(int nb, int power)
 	powered = nb;
 	if (nb == 0 && power == 0)
 		return (1);
+	if (power <= 0)
+		return (0);
 	while(i > 1)
 	{
 		powered *= nb;
