@@ -6,9 +6,10 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 07:11:56 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/23 13:30:00 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/24 09:47:22 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 int	ft_strlen(char *str)
 {
 	int i;
@@ -20,22 +21,31 @@ int	ft_strlen(char *str)
 	}
 	return(i);
 }
-int ft_total_len(**strs)
+int ft_total_len(int size, char **strs, char *sep)
 {	
-	int nbr_sep;
-	int strings_size;
-	nbe_sep = ft_strlen(*strs) - 1; //size - 1 en fait
-	while (strs[i])
+	int i;
+	int total;
+
+	i= 0;
+	total = 1; //'\0'
+	while (i < size)
 	{
-		strings_size += ft_strlen(strs[i]);
+		total += ft_strlen(strs[i]);
 		i++;
 	}
-	return (string_size + nbr_sep);
+	i = 0;
+	while (i < size - 1)
+	{
+		total += ft_strlen(sep);
+		i++;
+	}	
+	return (total);
 }
-char ft_strcat(*s1, *s2)
+char *ft_strcat(char *s1,char *s2)
 {
 	int i;
 	int j;
+
 	i = 0;
 	j = 0;
 	while(s1[i] != '\0')
@@ -46,35 +56,64 @@ char ft_strcat(*s1, *s2)
 		j++;
 	}
 	s1[i + j]='\0';
-	return (*s1);
+	return (s1);
 }
-char *ft_strjoin(int size, char **strs, char *sep);
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char *tab;
 	int i;
-	
-	tab = (char *)malloc(ft_total_len(**strs) *sizeof(char))
+	//int j;
+
 	if (size == 0)
 	{
-		tab = (char *)malloc(0);	// sizeof(int) * size == 0
+		tab = (char *)malloc(1);	// sizeof(int) * size == 0
 		if (!(tab))			// ?? free ici		
 			return (NULL);
-		free(tab);
+		tab[0] = '\0';
 	}
-	i = 0;
-	while(strs[i] != '\0')
+	tab =(char *)malloc(sizeof(ft_total_len(size, strs, sep) * sizeof(char)));
+	if (!tab)
+		return (NULL);
+	/*while (size < i)
+	{	
+		j = 0;
+		index = 0;
+		tab[index] = strs[i][j];
+		index++;
+		j++;
+		if (i < size - 1)
+		{
+			j = 0;
+			while (sep[j])
+			{
+				tab[index] = sep[j];
+				j++;
+				index++;
+			}
+		}
+		i++;
+	}*/
+	while (size > i)
 	{
-		ft_strcat(tab, strs[i])
-		if ( i < size) 
-		ft_strcat(tab, sep)
+		ft_strcat(tab, strs[i]);
+		if (size  > i - 1)
+				ft_strcat(tab, sep);
+		i++;
 	}
+	tab[i] = '\0';
+	return (tab);
 }
-
+#include <stdio.h>
 int main()
-{
-	char tableau[][] = {"un","deux"},{"trois","quatre"};
-	char coupe [] = " ";
+{	char *vide [] = {""};
+	char *tableau[]= {"un","deux","trois","quatre"};
+	char coupe[] = ", ";
 	int taille = 3;
+	char *tabresult = ft_strjoin(taille, vide, coupe);
+	char *tabresult2 = ft_strjoin(taille, tableau, coupe);
+	printf("%s", tabresult);
+	printf("%s", tabresult2);
+	free(tabresult);
+	free(tabresult2);
 
-	printf("%s", ft_strjoin(taille, tableau, coupe));
 }
