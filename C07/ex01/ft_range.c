@@ -6,7 +6,7 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:33:37 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/23 13:29:12 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:52:26 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -18,7 +18,7 @@ int	*ft_range(int min, int max)
 	int	i;
 
 	if (min >= max)
-		return (0);
+		return (NULL);
 	len = max - min;
 	i = 0;
 	tab = (int *)malloc (len * sizeof(int));
@@ -31,12 +31,12 @@ int	*ft_range(int min, int max)
 	}
 	return (tab);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int main ()
 {	
 	int i = 0;
-	int min = 12;
-	int max = 18;
+	int min = 1000;
+	int max = 1012;
 	int len = max - min;
 	int *tableau;
 	
@@ -47,4 +47,4 @@ int main ()
 	       i++;
 	}
 	free (tableau);
-}
+}*/

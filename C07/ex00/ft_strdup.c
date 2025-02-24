@@ -6,7 +6,7 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:56:19 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/19 10:32:23 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:29:44 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -51,7 +51,7 @@ char	*ft_strdup(char *src)
 /*#include <stdio.h>
 int main()
 {	
-	char chaine[] = "une copy";
+	char chaine[] = "une copie";
 	char *copie;
 	
 	copie =  ft_strdup(chaine);

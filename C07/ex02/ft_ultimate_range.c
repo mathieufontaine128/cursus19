@@ -6,10 +6,11 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:56:31 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/23 08:19:27 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:05:12 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
+
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	len;
@@ -31,7 +32,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 	*range = tab;
 	return (len);
 }
-#include <unistd.h> 
+/*#include <unistd.h> 
 #include <stdio.h>
 int main()
 {
@@ -39,72 +40,13 @@ int main()
 	int size;
 	int i;
 
-	size = ft_ultimate_range(&tab, 1, 6);
+	size = ft_ultimate_range(&tab, 1000,1006);
 	
 	i = 0;
 	while(i < size)
 	{
-		printf("%d", tab[i]);
+		printf("%d\n", tab[i]);
 		i++;
 	}
 	write(1, "\n", 1);
-}
-
-
-
-
-
-
-
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-/*{
-	
-	int len;
-	int **tab;
-	int i;
-
-	if (min >= max)
-		return (NULL);
-	len = max -min;
-	i = 0;
-	*tab = (int *)malloc (len * sizeof(int));
-	if (tab* == NULL)
-		return (-1);
-	while (i < )
-	{
-		tab*[i] = min + i;
-		i++;
-	}
-	return(len);
-}
-#include <stdio.h>
-int main()
-{
-	int *array;
-	int size = ft_ultimate_range(array, 1, 8); 
-	
 }*/
