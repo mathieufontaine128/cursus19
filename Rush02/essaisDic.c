@@ -6,7 +6,7 @@
 /*   By: mfontain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:39:26 by mfontain          #+#    #+#             */
-/*   Updated: 2025/02/22 15:39:05 by mfontain         ###   ########.fr       */
+/*   Updated: 2025/02/23 11:26:27 by mfontain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <fcntl.h>
@@ -61,5 +61,5 @@ void	lire_et_montrer(const char *fichier)
 }
  int main()
 {
-	lire_et_montrer("test.dict");
+	lire_et_montrer("numbers.dict");
 }
